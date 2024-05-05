@@ -6,6 +6,14 @@ import (
 	"os"
 )
 
+const (
+	RadixSort  = "radix"
+	MergeSort  = "merge"
+	QuickSort  = "quick"
+	HeapSort   = "heap"
+	RandomSort = "random"
+)
+
 func SortFile(file *os.File, unique bool, sortAlgo string) []string {
 
 	// Read lines from file
@@ -19,15 +27,15 @@ func SortFile(file *os.File, unique bool, sortAlgo string) []string {
 
 	// Sort the lines
 	switch sortAlgo {
-	case "radix":
+	case RadixSort:
 		radixSort(lines)
-	case "merge":
+	case MergeSort:
 		mergeSort(lines, 0, len(lines)-1)
-	case "quick":
+	case QuickSort:
 		quickSort(lines, 0, len(lines)-1)
-	case "heap":
+	case HeapSort:
 		heapSort(lines)
-	case "random":
+	case RandomSort:
 		randomSort(lines)
 	default:
 		fmt.Println("Invalid sort algorithm specified")

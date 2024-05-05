@@ -8,19 +8,13 @@ import (
 	"github.com/Rajeevnita1993/sort-tool/fileio"
 )
 
-const (
-	RadixSort  = "radix"
-	MergeSort  = "merge"
-	QuickSort  = "quick"
-	HeapSort   = "heap"
-	RandomSort = "random"
-)
-
 func main() {
 
-	sortAlgo := flag.String("algo", QuickSort, "Select sorting algorithm: radix, merge, quick, heap")
+	sortAlgo := flag.String("algo", fileio.QuickSort, "Select sorting algorithm: radix, merge, quick, heap")
 	unique := flag.Bool("u", false, "Remove dupplicate lines")
 	flag.Parse()
+
+	fmt.Println("algo: ", *sortAlgo)
 
 	if len(flag.Args()) < 1 {
 		fmt.Println("Usage: sort-algo [-u] [-algo=algorithm] <filename> ")
